@@ -1,7 +1,7 @@
 import http from 'http';
 import https from 'https';
 
-export const DESTROY_TIMEOUT_MS = 10000;
+export const DESTROY_TIMEOUT_MS = 3000;
 
 export class AgentManager {
   _agent: http.Agent | https.Agent;
