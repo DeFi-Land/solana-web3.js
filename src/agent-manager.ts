@@ -1,7 +1,7 @@
 import http from 'http';
 import https from 'https';
 
-export const DESTROY_TIMEOUT_MS = 5000;
+export const DESTROY_TIMEOUT_MS = 10000;
 
 export class AgentManager {
   _agent: http.Agent | https.Agent;
@@ -10,7 +10,7 @@ export class AgentManager {
   _useHttps: boolean;
 
   static _newAgent(useHttps: boolean): http.Agent | https.Agent {
-    const options = {keepAlive: true, maxSockets: 25};
+    const options = {keepAlive: true, maxSockets: 100};
     if (useHttps) {
       return new https.Agent(options);
     } else {
