@@ -10,7 +10,7 @@ export class AgentManager {
   _useHttps: boolean;
 
   static _newAgent(useHttps: boolean): http.Agent | https.Agent {
-    const options = {keepAlive: true, maxSockets: 100};
+    const options = {keepAlive: true, maxSockets: 500};
     if (useHttps) {
       return new https.Agent(options);
     } else {
